@@ -42,6 +42,7 @@ public class PostsTests {
         int status = propertyReader.getIntProperty("status404");
         String uri = propertyReader.getProperty("END_URI_POSTS");
         PostsAdapter postsAdapter = new PostsAdapter();
-        postsAdapter.getWrongPost (uri, status);
+        String id = "150";
+        postsAdapter.getWrongPost (uri + "/" + id, status);
     }
 }
