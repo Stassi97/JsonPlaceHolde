@@ -16,8 +16,6 @@ public class PostsTests {
     }
 
     @Test
-
-
     public void postPost() {
         Faker faker = new Faker();
         PostsModal postsModal = PostsModal.builder()
@@ -28,5 +26,13 @@ public class PostsTests {
                 .build();
         PostsAdapter postsAdapter = new PostsAdapter();
         postsAdapter.postPost(postsModal, propertyReader.getProperty("END_URI_POSTS"), propertyReader.getIntProperty("status201"));
+    }
+
+    @Test
+    public void getOnePost() {
+        PostsAdapter postsAdapter = new PostsAdapter();
+        int status = propertyReader.getIntProperty("status200");
+        String uri = propertyReader.getProperty("END_URI_POSTS");
+        postsAdapter.getOnePost(uri,  propertyReader.getIntProperty("99"), status);
     }
 }

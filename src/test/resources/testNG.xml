@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="JsonPlaceHolder-Web-Prod" parallel="methods" thread-count="1">
+
+   <test name="Filtration check">
+
+       <classes>
+           <class name ="jsonPlaceHolder.test.PostsTests"/>
+       </classes>
+   </test>
+</suite>
