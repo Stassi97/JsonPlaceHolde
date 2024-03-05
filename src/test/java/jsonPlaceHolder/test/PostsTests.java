@@ -30,9 +30,18 @@ public class PostsTests {
 
     @Test
     public void getOnePost() {
-        PostsAdapter postsAdapter = new PostsAdapter();
         int status = propertyReader.getIntProperty("status200");
         String uri = propertyReader.getProperty("END_URI_POSTS");
-        postsAdapter.getOnePost(uri,  propertyReader.getIntProperty("99"), status);
+        PostsAdapter postsAdapter = new PostsAdapter();
+        String id = "99";
+        postsAdapter.getOnePost (uri + "/" + id, status);
+    }
+
+    @Test
+    public void getWrongPost() {
+        int status = propertyReader.getIntProperty("status404");
+        String uri = propertyReader.getProperty("END_URI_POSTS");
+        PostsAdapter postsAdapter = new PostsAdapter();
+        postsAdapter.getWrongPost (uri, status);
     }
 }
