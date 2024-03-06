@@ -55,20 +55,21 @@ public class PostsUsers extends BaseAdapter{
             String bs = company.get("bs").getAsString();
             if (id == 5) {
                 softAssert.assertEquals(id, 5, "Wrong id");
-                softAssert.assertTrue(!name.contains("Chelsey Dietrich"), "Wrong name");
-                softAssert.assertTrue(!userName.contains("Kamren"), "Wrong user name");
-                softAssert.assertTrue(!email.contains("Lucio_Hettinger@annie.ca"), "Wrong user email");
-                softAssert.assertTrue(!street.contains("Skiles Walks"), "Wrong user street");
-                softAssert.assertTrue(!suite.contains("Suite 351"), "Wrong user suite");
-                softAssert.assertTrue(!city.contains("Roscoeview"), "Wrong user city");
-                softAssert.assertTrue(!zipcode.contains("33263"), "Wrong user zipcode");
-                softAssert.assertTrue(!lat.contains("-31.8129"), "Wrong user lat");
-                softAssert.assertTrue(!lng.contains("62.5342"), "Wrong user lng");
-                softAssert.assertTrue(!phone.contains("(254)954-1289"), "Wrong user phone");
-                softAssert.assertTrue(!website.contains("demarco.info"), "Wrong user website");
-                softAssert.assertTrue(!companyName.contains("Keebler LLC"), "Wrong user company");
-                softAssert.assertTrue(!catchPhrase.contains("User-centric fault-tolerant solution"), "Wrong user catchPhrase");
-                softAssert.assertTrue(!bs.contains("revolutionize end-to-end systems"), "Wrong user bs");
+                softAssert.assertTrue(name.contains("Chelsey Dietrich"), "Wrong name");
+                softAssert.assertTrue(userName.contains("Kamren"), "Wrong user name");
+                softAssert.assertTrue(email.contains("Lucio_Hettinger@annie.ca"), "Wrong user email");
+                softAssert.assertTrue(street.contains("Skiles Walks"), "Wrong user street");
+                softAssert.assertTrue(suite.contains("Suite 351"), "Wrong user suite");
+                softAssert.assertTrue(city.contains("Roscoeview"), "Wrong user city");
+                softAssert.assertTrue(zipcode.contains("33263"), "Wrong user zipcode");
+                softAssert.assertTrue(lat.contains("-31.8129"), "Wrong user lat");
+                softAssert.assertTrue(lng.contains("62.5342"), "Wrong user lng");
+                softAssert.assertTrue(phone.contains("(254)954-1289"), "Wrong user phone");
+                softAssert.assertTrue(website.contains("demarco.info"), "Wrong user website");
+                softAssert.assertTrue(companyName.contains("Keebler LLC"), "Wrong user company");
+                softAssert.assertTrue(catchPhrase.contains("User-centric fault-tolerant solution"), "Wrong user catchPhrase");
+                softAssert.assertTrue(bs.contains("revolutionize end-to-end systems"), "Wrong user bs");
+                softAssert.assertAll();
             }
         }
     }
