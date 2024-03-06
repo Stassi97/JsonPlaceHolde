@@ -3,6 +3,7 @@ package jsonPlaceHolder.test;
 import com.github.javafaker.Faker;
 import framework.PropertyReader;
 import jsonPlaceHolder.adapters.PostsAdapter;
+import jsonPlaceHolder.adapters.PostsUsers;
 import jsonPlaceHolder.pojo.PostsModal;
 import org.testng.annotations.Test;
 

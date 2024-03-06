@@ -67,5 +67,6 @@ public class PostsAdapter extends BaseAdapter {
         String response = get(endUri, status);
         JsonObject jsonObject = parseString(response).getAsJsonObject();
         System.out.println(jsonObject);
+        System.out.println("Body is empty");
     }
 }
