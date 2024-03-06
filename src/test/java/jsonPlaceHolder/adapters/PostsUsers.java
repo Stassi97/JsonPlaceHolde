@@ -17,7 +17,6 @@ import static com.google.gson.JsonParser.parseString;
 import static framework.PropertyReader.getIntProperty;
 public class PostsUsers extends BaseAdapter{
 
-    protected Gson gson = new Gson();
     SoftAssert softAssert = new SoftAssert();
 
     @Step("Get all users")
@@ -71,7 +70,6 @@ public class PostsUsers extends BaseAdapter{
                 softAssert.assertTrue(!catchPhrase.contains("User-centric fault-tolerant solution"), "Wrong user catchPhrase");
                 softAssert.assertTrue(!bs.contains("revolutionize end-to-end systems"), "Wrong user bs");
             }
-            System.out.println("User is correct");
         }
     }
 }
