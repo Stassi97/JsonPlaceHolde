@@ -23,10 +23,8 @@ public class PostsUsers extends BaseAdapter{
     @Step("Get all users")
     public void getUsers(String endUri, int status) {
         String response = get(endUri, status);
-        System.out.println(response);
         JsonParser jsonParser = new JsonParser();
         JsonArray jsonArray = (JsonArray) jsonParser.parse(response);
-        System.out.println("Number of posts: " + jsonArray.size());
         for(int i = 1; i<jsonArray.size(); i++) {
             JsonObject jsonObject = jsonArray.get(i).getAsJsonObject(); //из массивы вытащили Iый эл-т  и преобразовали в Json объект
             Assert.assertTrue(jsonObject.get("id").getAsInt()-i==1, "Post cannot be found 404");
@@ -36,26 +34,26 @@ public class PostsUsers extends BaseAdapter{
     @Step ("Compare user info")
     public void compareUser(String endUri, int status) {
         String response2 = get(endUri, status);
-        JsonParser jsonParser = new JsonParser();
-        JsonArray jsonArray = (JsonArray) jsonParser.parse(response2);
-        //  JsonObject jsonObject = parseString(response2).getAsJsonObject();
-        for(int i = 0; i<jsonArray.size(); i++) {
-             JsonObject jsonObject = jsonArray.get(i).getAsJsonObject();
+        JsonObject jsonObject = parseString(response2).getAsJsonObject();
+        for(int i = 0; i<jsonObject.size(); i++) {
             int id = jsonObject.getAsJsonObject().get("id").getAsInt();
             String name = jsonObject.get("name").getAsString();
-            String userName = jsonObject.get("userName").getAsString();
+            String userName = jsonObject.get("username").getAsString();
             String email = jsonObject.get("email").getAsString();
-            String street = jsonObject.get("street").getAsString();
-            String suite = jsonObject.get("suite").getAsString();
-            String city = jsonObject.get("city").getAsString();
-            String zipcode = jsonObject.get("zipcode").getAsString();
-            String lat = jsonObject.get("lat").getAsString();
-            String lng = jsonObject.get("lng").getAsString();
+            JsonObject address = (JsonObject) jsonObject.get("address");
+            String street = address.get("street").getAsString();
+            String suite = address.get("suite").getAsString();
+            String city = address.get("city").getAsString();
+            String zipcode = address.get("zipcode").getAsString();
+            JsonObject geo = (JsonObject) address.get("geo");
+            String lat = geo.get("lat").getAsString();
+            String lng = geo.get("lng").getAsString();
             String phone = jsonObject.get("phone").getAsString();
             String website = jsonObject.get("website").getAsString();
-            String companyName = jsonObject.get("companyName").getAsString();
-            String catchPhrase = jsonObject.get("catchPhrase").getAsString();
-            String bs = jsonObject.get("bs").getAsString();
+            JsonObject company = (JsonObject) jsonObject.get("company");
+            String companyName = company.get("name").getAsString();
+            String catchPhrase = company.get("catchPhrase").getAsString();
+            String bs = company.get("bs").getAsString();
             if (id == 5) {
                 softAssert.assertEquals(id, 5, "Wrong id");
                 softAssert.assertTrue(!name.contains("Chelsey Dietrich"), "Wrong name");
@@ -72,8 +70,8 @@ public class PostsUsers extends BaseAdapter{
                 softAssert.assertTrue(!companyName.contains("Keebler LLC"), "Wrong user company");
                 softAssert.assertTrue(!catchPhrase.contains("User-centric fault-tolerant solution"), "Wrong user catchPhrase");
                 softAssert.assertTrue(!bs.contains("revolutionize end-to-end systems"), "Wrong user bs");
-                softAssert.assertAll();
             }
+            System.out.println("User is correct");
         }
     }
 }
